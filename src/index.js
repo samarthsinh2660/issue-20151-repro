@@ -1,9 +1,9 @@
 import { __ as i18n } from "./i18n";
 
 function unused() {
-	// This reference to 'i18n' should be transformed to 'undefined' (or similar)
-	// when 'unused' is not used, but webpack marks it as inactive.
-	// In the bug state, it remains as 'i18n', which might conflict with globals.
+	// In the fix state, 'i18n' remains in the code, but it is declared 
+	// as 'undefined' at the module level via 'var i18n = ... undefined;'.
+	// This prevents global variable clashes while keeping the code readable.
 	return i18n("wtf");
 }
 
